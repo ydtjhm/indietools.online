@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indie Makers Hub - Essential Tools & Resources</title>
+    <meta name="description" content="Curated collection of essential tools and resources for indie makers, solo entrepreneurs, and independent developers.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: clamp(20px, 5vw, 40px);
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .stat-number {
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 600;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 18px 60px 18px 24px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .search-box::placeholder {
+            color: #999;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .quick-access {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .quick-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .category-btn {
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-size: 14px;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .bookmark-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .bookmark-category {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            padding: 28px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .bookmark-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .category-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .bookmark-list {
+            list-style: none;
+        }
+
+        .bookmark-item {
+            margin-bottom: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .bookmark-link {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #555;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .bookmark-link:hover {
+            background: #f8f9fa;
+            color: #333;
+            transform: translateX(5px);
+            border-color: #e9ecef;
+        }
+
+        .bookmark-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            position: relative;
+        }
+
+        .bookmark-icon::after {
+            content: '🔗';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10px;
+        }
+
+        .bookmark-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .bookmark-name {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            line-height: 1.3;
+            word-wrap: break-word;
+        }
+
+        .bookmark-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+            word-wrap: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .bookmark-url {
+            font-size: 11px;
+            color: #888;
+            margin-top: 4px;
+            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+            word-break: break-all;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 30px 0;
+                margin-bottom: 30px;
+            }
+
+            .search-container {
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
+
+            .search-box {
+                padding: 16px 55px 16px 20px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .search-btn {
+                right: 18px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .bookmark-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .bookmark-category {
+                padding: 22px 18px;
+            }
+
+            .categories {
+                gap: 6px;
+                padding: 0 10px;
+            }
+
+            .category-btn {
+                padding: 10px 16px;
+                font-size: 13px;
+                margin: 2px;
+            }
+
+            .quick-access {
+                gap: 8px;
+                padding: 0 10px;
+            }
+
+            .quick-link {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+
+            .stats {
+                gap: 15px;
+            }
+
+            .bookmark-link {
+                padding: 10px 12px;
+            }
+
+            .bookmark-name {
+                font-size: 14px;
+            }
+
+            .bookmark-desc {
+                font-size: 12px;
+            }
+        }
+
+        /* Very small mobile devices */
+        @media (max-width: 480px) {
+            .bookmark-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .bookmark-category {
+                padding: 20px 16px;
+            }
+
+            .category-title {
+                font-size: 1.1rem;
+            }
+
+            .categories {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 0 15px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .categories::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        /* Tablet optimizations */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .bookmark-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1200px) {
+            .bookmark-grid {
+                grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚀 Indie Makers Hub</h1>
+            <p>Essential tools and resources for indie makers, solo entrepreneurs, and independent developers</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">80+</span>
+                    <span class="stat-label">Quality Tools</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Free Access</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search tools, resources, articles..." id="searchInput">
+            <button class="search-btn" onclick="performSearch()" aria-label="Search">🔍</button>
+        </div>
+
+        <div class="quick-access">
+            <a href="https://github.com" class="quick-link" target="_blank" rel="noopener">
+                <span>💻</span> GitHub
+            </a>
+            <a href="https://vercel.com" class="quick-link" target="_blank" rel="noopener">
+                <span>⚡</span> Vercel
+            </a>
+            <a href="https://ahrefs.com" class="quick-link" target="_blank" rel="noopener">
+                <span>📊</span> Ahrefs
+            </a>
+            <a href="https://toolify.ai" class="quick-link" target="_blank" rel="noopener">
+                <span>🤖</span> AI Tools
+            </a>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" onclick="filterCategory('all')">All</button>
+            <button class="category-btn" onclick="filterCategory('research')">Research</button>
+            <button class="category-btn" onclick="filterCategory('essentials')">Essentials</button>
+            <button class="category-btn" onclick="filterCategory('analytics')">Analytics</button>
+            <button class="category-btn" onclick="filterCategory('templates')">Templates</button>
+            <button class="category-btn" onclick="filterCategory('navigation')">Nav Sites</button>
+            <button class="category-btn" onclick="filterCategory('insights')">Insights</button>
+            <button class="category-btn" onclick="filterCategory('business')">Business</button>
+        </div>
+
+        <div class="bookmark-grid" id="bookmarkGrid">
+            <!-- Market Research & Keywords -->
+            <div class="bookmark-category" data-category="research">
+                <div class="category-title">
+                    <div class="category-icon">🔍</div>
+                    Market Research & Keywords
+                </div>
+                <ul class="bookmark-list">
+                    <li class="bookmark-item">
+                        <a href="https://www.searchsuggest.tips/?keyword=" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Google Suggest Tool</div>
+                                <div class="bookmark-desc">Get Google search autocomplete suggestions to discover real user search intent and trends</div>
+                                <div class="bookmark-url">searchsuggest.tips</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://www.toolify.ai/Best-AI-Tools-revenue" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Toolify Rankings</div>
+                                <div class="bookmark-desc">AI tools revenue rankings and performance metrics for market insights</div>
+                                <div class="bookmark-url">toolify.ai</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://theresanaiforthat.com/requests" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">AI Tool Requests</div>
+                                <div class="bookmark-desc">User-submitted AI tool requests to identify market gaps and opportunities</div>
+                                <div class="bookmark-url">theresanaiforthat.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://ahrefs.com/keyword-difficulty" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Keyword Difficulty</div>
+                                <div class="bookmark-desc">Analyze keyword ranking difficulty and competition levels for SEO strategy</div>
+                                <div class="bookmark-url">ahrefs.com</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Launch Essentials -->
+            <div class="bookmark-category" data-category="essentials">
+                <div class="category-title">
+                    <div class="category-icon">🛠️</div>
+                    Launch Essentials
+                </div>
+                <ul class="bookmark-list">
+                    <li class="bookmark-item">
+                        <a href="https://leandomainsearch.com/" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Domain Search</div>
+                                <div class="bookmark-desc">Fast and clean domain availability checker with instant results</div>
+                                <div class="bookmark-url">leandomainsearch.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://query.domains/" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Query Domains</div>
+                                <div class="bookmark-desc">Advanced domain search and analysis tools for finding the perfect domain</div>
+                                <div class="bookmark-url">query.domains</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://spaceship.com" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Spaceship</div>
+                                <div class="bookmark-desc">Reliable domain registrar with competitive pricing and excellent support</div>
+                                <div class="bookmark-url">spaceship.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://github.com" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">GitHub</div>
+                                <div class="bookmark-desc">Code hosting, version control, and collaboration platform for developers</div>
+                                <div class="bookmark-url">github.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://cloudflare.com" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Cloudflare</div>
+                                <div class="bookmark-desc">CDN, security, and edge computing services for faster, safer websites</div>
+                                <div class="bookmark-url">cloudflare.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://vercel.com" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Vercel</div>
+                                <div class="bookmark-desc">Frontend deployment platform with instant builds and global CDN</div>
+                                <div class="bookmark-url">vercel.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://search.google.com/search-console" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Google Search Console</div>
+                                <div class="bookmark-desc">Monitor and optimize your website's presence in Google search results</div>
+                                <div class="bookmark-url">search.google.com</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Competitor Analysis -->
+            <div class="bookmark-category" data-category="analytics">
+                <div class="category-title">
+                    <div class="category-icon">📊</div>
+                    Competitor Analysis
+                </div>
+                <ul class="bookmark-list">
+                    <li class="bookmark-item">
+                        <a href="https://aitdk.com" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">AI TDK</div>
+                                <div class="bookmark-desc">Analyze website traffic, keywords, and performance metrics</div>
+                                <div class="bookmark-url">aitdk.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://ahrefs.com/free-seo-tools" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Ahrefs Free Tools</div>
+                                <div class="bookmark-desc">Free SEO tools for backlink analysis, keyword research, and site audits</div>
+                                <div class="bookmark-url">ahrefs.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://semrush.com" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">SEMrush</div>
+                                <div class="bookmark-desc">Professional SEO and digital marketing analytics platform</div>
+                                <div class="bookmark-url">semrush.com</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Open Source Templates -->
+            <div class="bookmark-category" data-category="templates">
+                <div class="category-title">
+                    <div class="category-icon">⚡</div>
+                    Open Source Templates
+                </div>
+                <ul class="bookmark-list">
+                    <li class="bookmark-item">
+                        <a href="https://github.com/openRin/Rin" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Rin Blog System</div>
+                                <div class="bookmark-desc">Dynamic blog built with Cloudflare Pages + Workers + D1 + R2</div>
+                                <div class="bookmark-url">github.com/openRin/Rin</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://github.com/ixartz/Next-js-Boilerplate" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Next.js Boilerplate</div>
+                                <div class="bookmark-desc">Next.js 15 starter with App Router and Page Router support</div>
+                                <div class="bookmark-url">github.com/ixartz</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://github.com/ixartz/SaaS-Boilerplate" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">SaaS Boilerplate</div>
+                                <div class="bookmark-desc">Complete SaaS starter with Next.js + Tailwind + Shadcn UI + TypeScript</div>
+                                <div class="bookmark-url">github.com/ixartz</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://github.com/weijunext/landing-page-boilerplate" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Landing Page Boilerplate</div>
+                                <div class="bookmark-desc">Versatile landing page template for projects and marketing campaigns</div>
+                                <div class="bookmark-url">github.com/weijunext</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://github.com/wasp-lang/open-saas/" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Open SaaS</div>
+                                <div class="bookmark-desc">Free, open-source SaaS app starter for React & Node.js with superpowers</div>
+                                <div class="bookmark-url">github.com/wasp-lang</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://github.com/saasfly/saasfly" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">SaasFly</div>
+                                <div class="bookmark-desc">Next SaaS template with one-click deployment. The more stars, the more surprises</div>
+                                <div class="bookmark-url">github.com/saasfly</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Navigation Templates -->
+            <div class="bookmark-category" data-category="navigation">
+                <div class="category-title">
+                    <div class="category-icon">🧭</div>
+                    Navigation Site Templates
+                </div>
+                <ul class="bookmark-list">
+                    <li class="bookmark-item">
+                        <a href="https://github.com/fre123-com/fre123-nav/" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">FRE123 Navigation</div>
+                                <div class="bookmark-desc">Free resource sharing platform navigation with one-click deployment</div>
+                                <div class="bookmark-url">github.com/fre123-com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://github.com/WebStackPage/WebStackPage.github.io" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">WebStack Navigation</div>
+                                <div class="bookmark-desc">Static responsive website navigation template - webstack.cc</div>
+                                <div class="bookmark-url">github.com/WebStackPage</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://github.com/6677-ai/tap4-ai-webui" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Tap4 AI WebUI</div>
+                                <div class="bookmark-desc">One-click deployment of AI tools directory with open source web-ui</div>
+                                <div class="bookmark-url">github.com/6677-ai</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://github.com/all-in-aigc/gpts-works" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">GPTs Works</div>
+                                <div class="bookmark-desc">Third-party GPTs store and showcase platform</div>
+                                <div class="bookmark-url">github.com/all-in-aigc</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://vercel.com/templates" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Vercel Templates</div>
+                                <div class="bookmark-desc">Rich collection of website templates with one-click deployment</div>
+                                <div class="bookmark-url">vercel.com/templates</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Industry Insights -->
+            <div class="bookmark-category" data-category="insights">
+                <div class="category-title">
+                    <div class="category-icon">📰</div>
+                    Industry Insights & Learning
+                </div>
+                <ul class="bookmark-list">
+                    <li class="bookmark-item">
+                        <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=zh-cn" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Google SEO Guide</div>
+                                <div class="bookmark-desc">Official Google SEO fundamentals and best practices documentation</div>
+                                <div class="bookmark-url">developers.google.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://ahrefs.com/websites#trending" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Top Trending Websites</div>
+                                <div class="bookmark-desc">Ahrefs data on trending websites and traffic patterns</div>
+                                <div class="bookmark-url">ahrefs.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://www.500mrr.com/" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">500 MRR</div>
+                                <div class="bookmark-desc">Showcase of side projects making $500/month in recurring revenue</div>
+                                <div class="bookmark-url">500mrr.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://news.ycombinator.com/item?id=42373343" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">HN Side Projects</div>
+                                <div class="bookmark-desc">Hacker News discussion on successful side projects in 2024</div>
+                                <div class="bookmark-url">news.ycombinator.com</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Business Wisdom -->
+            <div class="bookmark-category" data-category="business">
+                <div class="category-title">
+                    <div class="category-icon">💎</div>
+                    Business Wisdom & Insights
+                </div>
+                <ul class="bookmark-list">
+                    <li class="bookmark-item">
+                        <a href="https://scys.com/articleDetail/xq_topic/1525814845844482" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Don't Call Yourself an Indie Developer</div>
+                                <div class="bookmark-desc">Deep thoughts on indie developer identity and positioning</div>
+                                <div class="bookmark-url">scys.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://scys.com/articleDetail/xq_topic/2858151258225521" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">AI Programming First Lesson</div>
+                                <div class="bookmark-desc">Build a business, not an App - essential business mindset</div>
+                                <div class="bookmark-url">scys.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://scys.com/articleDetail/xq_topic/4848511545851418" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">The Era of Ideas Making Money</div>
+                                <div class="bookmark-desc">How AI is changing business models and opportunities</div>
+                                <div class="bookmark-url">scys.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://scys.com/articleDetail/xq_topic/5122484888125484" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">Best Time to Learn Programming with AI</div>
+                                <div class="bookmark-desc">How to leverage AI tools for rapid programming skill development</div>
+                                <div class="bookmark-url">scys.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://scys.com/articleDetail/xq_topic/811452228445512" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">What Products to Build? The Three Ones</div>
+                                <div class="bookmark-desc">Golden rules and practical methods for product selection</div>
+                                <div class="bookmark-url">scys.com</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="bookmark-item">
+                        <a href="https://scys.com/articleDetail/xq_topic/814822455488822" class="bookmark-link" target="_blank" rel="noopener">
+                            <div class="bookmark-icon"></div>
+                            <div class="bookmark-content">
+                                <div class="bookmark-name">How to Build Product MVP Quickly</div>
+                                <div class="bookmark-desc">MVP development best practices and experience sharing</div>
+                                <div class="bookmark-url">scys.com</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Indie Makers Hub | Empowering every indie maker to succeed</p>
+            <p>Curated quality resources, save search time, focus on building products</p>
+        </footer>
+    </div>
+
+    <script>
+        // Search functionality
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+                document.getElementById('searchInput').value = '';
+            }
+        }
+
+        // Enter to search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Category filtering
+        function filterCategory(category) {
+            const categories = document.querySelectorAll('.bookmark-category');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            // Update button states
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide categories
+            categories.forEach(cat => {
+                if (category === 'all' || cat.dataset.category === category) {
+                    cat.style.display = 'block';
+                    cat.style.animation = 'fadeIn 0.3s ease';
+                } else {
+                    cat.style.display = 'none';
+                }
+            });
+        }
+
+        // Real-time search
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            const bookmarkItems = document.querySelectorAll('.bookmark-item');
+            const categories = document.querySelectorAll('.bookmark-category');
+            
+            if (query === '') {
+                bookmarkItems.forEach(item => item.style.display = 'block');
+                categories.forEach(cat => cat.style.display = 'block');
+                return;
+            }
+            
+            categories.forEach(cat => {
+                let hasVisibleItems = false;
+                const items = cat.querySelectorAll('.bookmark-item');
+                
+                items.forEach(item => {
+                    const bookmarkName = item.querySelector('.bookmark-name').textContent.toLowerCase();
+                    const bookmarkDesc = item.querySelector('.bookmark-desc').textContent.toLowerCase();
+                    
+                    if (bookmarkName.includes(query) || bookmarkDesc.includes(query)) {
+                        item.style.display = 'block';
+                        hasVisibleItems = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                cat.style.display = hasVisibleItems ? 'block' : 'none';
+            });
+        });
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            @keyframes slideIn {
+                from { opacity: 0; transform: translateX(-30px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+            
+            /* Smooth scrolling for category navigation */
+            .categories {
+                scroll-behavior: smooth;
+            }
+            
+            /* Focus styles for accessibility */
+            .search-box:focus,
+            .category-btn:focus,
+            .bookmark-link:focus {
+                outline: 2px solid #667eea;
+                outline-offset: 2px;
+            }
+            
+            /* Loading state */
+            .bookmark-category.loading {
+                opacity: 0.6;
+                pointer-events: none;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Page load animation
+        window.addEventListener('load', function() {
+            const categories = document.querySelectorAll('.bookmark-category');
+            categories.forEach((cat, index) => {
+                cat.style.opacity = '0';
+                cat.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    cat.style.transition = 'all 0.4s ease';
+                    cat.style.opacity = '1';
+                    cat.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Update statistics
+        function updateStats() {
+            const totalLinks = document.querySelectorAll('.bookmark-item').length;
+            const totalCategories = document.querySelectorAll('.bookmark-category').length;
+            
+            document.querySelector('.stat-number').textContent = totalLinks + '+';
+            document.querySelectorAll('.stat-number')[1].textContent = totalCategories;
+        }
+
+        // Touch gestures for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function handleGesture() {
+            if (touchEndX < touchStartX - 50) {
+                // Swipe left - could implement category navigation
+            }
+            if (touchEndX > touchStartX + 50) {
+                // Swipe right - could implement category navigation
+            }
+        }
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        });
+
+        // Performance optimization - lazy loading
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '50px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Initialize
+        updateStats();
+        
+        // Observe bookmark categories for animations
+        document.querySelectorAll('.bookmark-category').forEach(cat => {
+            observer.observe(cat);
+        });
+    </script>
+</body>
+</html>
